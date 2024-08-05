@@ -9,15 +9,16 @@ namespace GameDev
   namespace Patterns
   {
     /// <summary>
-    /// Класс ингы.
+    /// Класс игры.
     /// </summary>
-    class Game
+    class Game : public std::enable_shared_from_this<Game>
     {
     public:
       /// <summary>
-      /// Конструктор.
+      /// Создаёт новую игру.
       /// </summary>
-      Game();
+      /// <returns>Объект игры.</returns>
+      static std::shared_ptr<Game> Create();
 
       /// <summary>
       /// Деструктор.
@@ -50,6 +51,15 @@ namespace GameDev
       GameState GetState() const
       {
         return _state;
+      }
+
+    private:
+      /// <summary>
+      /// Конструктор.
+      /// </summary>
+      Game()
+        : _state(GameState::Initializing)
+      {
       }
 
     private:

@@ -23,13 +23,13 @@ namespace GameDev
       /// Выполняет перемещение актора.
       /// </summary>
       /// <param name="actor">Перемещаемый актор.</param>
-      virtual void Execute(std::shared_ptr<GameActor> actor);
+      virtual void Execute(std::shared_ptr<GameActor> actor) override;
 
       /// <summary>
       /// Отменяет перемещение актора.
       /// </summary>
       /// <param name="actor">Перемещаемый актор.</param>
-      virtual void Undo(std::shared_ptr<GameActor> actor);
+      virtual void Undo(std::shared_ptr<GameActor> actor) override;
 
     private:
       /// <summary>

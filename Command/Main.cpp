@@ -9,7 +9,7 @@ using namespace GameDev::Patterns;
 
 int main()
 {
-  Game game;
+  auto game = Game::Create();
   KeyboardInputHandler keyboardHandler;
 
   // Привязка клавиш управления
@@ -20,15 +20,15 @@ int main()
   keyboardHandler.AssignCommand(KeyCode::Space, CommandFactory::CreateCommand(GameAction::Explore));
   keyboardHandler.AssignCommand(KeyCode::Escape, CommandFactory::CreateCommand(GameAction::QuitGame));
 
-  game.Start();
+  game->Start();
   do
   {
     auto command = keyboardHandler.HandleInput();
     if (command != nullptr)
     {
-      command->Execute(game.GetPlayer());
+      command->Execute(game->GetPlayer());
     }
-  } while (game.GetState() == GameState::Running);
+  } while (game->GetState() == GameState::Running);
   
   std::cout << "Game over" << std::endl;
 }

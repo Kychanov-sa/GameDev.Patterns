@@ -29,6 +29,7 @@ namespace GameDev
       default:
         break;
       }
+      std::cout << "You moved somewhere." << std::endl;
     }
 
     void GameActor::Explore() const

@@ -36,7 +36,7 @@ namespace GameDev
       /// Обрабатывает пользовательский ввод с клавиатуры.
       /// </summary>
       /// <returns>Команда, которую необходимо выполнить в соответствии с пользовательским вводом.</returns>
-      virtual Command* HandleInput();
+      virtual Command* HandleInput() override;
 
       /// <summary>
       /// Назначает команду на соответствующую клавишу клавиатуры.
